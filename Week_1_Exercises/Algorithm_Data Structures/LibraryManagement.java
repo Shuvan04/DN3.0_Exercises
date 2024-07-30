@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.week1;
 
 /**
@@ -55,8 +51,7 @@ class LibraryManagement {
         books = new Book[size];
         count = 0;
     }
-
-    // Add a new book to the library
+    
     public void addBook(Book book) {
         if (count < books.length) {
             books[count++] = book;
@@ -66,7 +61,6 @@ class LibraryManagement {
         }
     }
 
-    // Linear search to find a book by title
     public Book linearSearch(String title) {
         for (int i = 0; i < count; i++) {
             if (books[i].getTitle().equalsIgnoreCase(title)) {
@@ -76,7 +70,6 @@ class LibraryManagement {
         return null;
     }
 
-    // Binary search to find a book by title (Assuming the array is sorted)
     public Book binarySearch(String title) {
         int left = 0, right = count - 1;
         while (left <= right) {
@@ -93,14 +86,12 @@ class LibraryManagement {
         return null;
     }
 
-    // Display all books
     public void displayBooks() {
         for (int i = 0; i < count; i++) {
             System.out.println(books[i]);
         }
     }
 
-    // Sort the books array by title
     public void sortBooks() {
         Arrays.sort(books, 0, count);
     }
@@ -125,7 +116,7 @@ class LibraryManagement {
                 case 1:
                     System.out.print("Enter Book ID: ");
                     int id = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     System.out.print("Enter Book Title: ");
                     String title = scanner.nextLine();
                     System.out.print("Enter Author: ");
@@ -134,15 +125,15 @@ class LibraryManagement {
                     library.addBook(newBook);
                     break;
                 case 2:
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     System.out.print("Enter Book Title to search (Linear Search): ");
                     String linearSearchTitle = scanner.nextLine();
                     Book foundBookLinear = library.linearSearch(linearSearchTitle);
                     System.out.println("Search Result: " + (foundBookLinear != null ? foundBookLinear : "Book not found"));
                     break;
                 case 3:
-                    scanner.nextLine(); // Consume newline
-                    library.sortBooks(); // Ensure the array is sorted before binary search
+                    scanner.nextLine();
+                    library.sortBooks();
                     System.out.print("Enter Book Title to search (Binary Search): ");
                     String binarySearchTitle = scanner.nextLine();
                     Book foundBookBinary = library.binarySearch(binarySearchTitle);
