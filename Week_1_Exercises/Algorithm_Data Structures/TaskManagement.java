@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.week1;
 
 /**
@@ -14,7 +10,7 @@ class Task {
     private int taskId;
     private String taskName;
     private String status;
-    Task next; // Pointer to the next task in the linked list
+    Task next;
 
     public Task(int taskId, String taskName, String status) {
         this.taskId = taskId;
@@ -48,7 +44,6 @@ class TaskManagement {
         head = null;
     }
 
-    // Add a new task to the linked list
     public void addTask(Task task) {
         if (head == null) {
             head = task;
@@ -62,7 +57,6 @@ class TaskManagement {
         System.out.println("Task added: " + task);
     }
 
-    // Search for a task by ID
     public Task searchTask(int taskId) {
         Task current = head;
         while (current != null) {
@@ -74,7 +68,6 @@ class TaskManagement {
         return null;
     }
 
-    // Traverse the linked list and display all tasks
     public void traverseTasks() {
         if (head == null) {
             System.out.println("No tasks to display.");
@@ -88,14 +81,12 @@ class TaskManagement {
         }
     }
 
-    // Delete a task by ID
     public void deleteTask(int taskId) {
         if (head == null) {
             System.out.println("No tasks to delete.");
             return;
         }
 
-        // If the task to be deleted is the head
         if (head.getTaskId() == taskId) {
             head = head.next;
             System.out.println("Task deleted: ID " + taskId);
@@ -105,7 +96,7 @@ class TaskManagement {
         Task current = head;
         while (current.next != null) {
             if (current.next.getTaskId() == taskId) {
-                current.next = current.next.next; // Bypass the task to be deleted
+                current.next = current.next.next;
                 System.out.println("Task deleted: ID " + taskId);
                 return;
             }
@@ -132,7 +123,7 @@ class TaskManagement {
                 case 1:
                     System.out.print("Enter Task ID: ");
                     int id = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     System.out.print("Enter Task Name: ");
                     String name = scanner.nextLine();
                     System.out.print("Enter Status: ");
