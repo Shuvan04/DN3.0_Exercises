@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.week1;
 
 /**
@@ -86,8 +82,8 @@ public class EmployeeManagement {
     public void deleteEmployee(int employeeId) {
         for (int i = 0; i < count; i++) {
             if (employees[i].getEmployeeId() == employeeId) {
-                employees[i] = employees[count - 1]; // Move the last employee to the deleted spot
-                employees[count - 1] = null; // Clear the last spot
+                employees[i] = employees[count - 1];
+                employees[count - 1] = null;
                 count--;
                 System.out.println("Employee deleted: ID " + employeeId);
                 return;
@@ -98,7 +94,7 @@ public class EmployeeManagement {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        EmployeeManagement management = new EmployeeManagement(10); // Limit to 10 employees
+        EmployeeManagement management = new EmployeeManagement(10);
 
         while (true) {
             System.out.println("\nEmployee Management System");
