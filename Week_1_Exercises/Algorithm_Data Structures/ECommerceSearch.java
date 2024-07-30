@@ -49,7 +49,6 @@ public class ECommerceSearch {
         this.products = products;
     }
 
-    // Linear search implementation
     public Product linearSearch(int productId) {
         for (Product product : products) {
             if (product.getProductId() == productId) {
@@ -58,8 +57,7 @@ public class ECommerceSearch {
         }
         return null;
     }
-
-    // Binary search implementation
+    
     public Product binarySearch(int productId) {
         int left = 0;
         int right = products.length - 1;
@@ -91,7 +89,6 @@ public class ECommerceSearch {
 
         ECommerceSearch search = new ECommerceSearch(products);
 
-        // Sort the array for binary search
         Arrays.sort(products);
 
         Scanner scanner = new Scanner(System.in);
@@ -99,11 +96,9 @@ public class ECommerceSearch {
         System.out.println("Enter Product ID to search: ");
         int productId = scanner.nextInt();
 
-        // Linear search
         Product resultLinear = search.linearSearch(productId);
         System.out.println("Linear Search Result: " + (resultLinear != null ? resultLinear : "Product not found"));
 
-        // Binary search
         Product resultBinary = search.binarySearch(productId);
         System.out.println("Binary Search Result: " + (resultBinary != null ? resultBinary : "Product not found"));
 
