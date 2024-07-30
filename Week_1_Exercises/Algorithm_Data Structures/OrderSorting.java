@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.week1;
 
 /**
@@ -38,7 +34,6 @@ class Order {
 }
 
 public class OrderSorting {
-    // Bubble Sort implementation
     public void bubbleSort(Order[] orders) {
         int n = orders.length;
         for (int i = 0; i < n - 1; i++) {
@@ -53,12 +48,11 @@ public class OrderSorting {
         }
     }
 
-    // Quick Sort implementation
     public void quickSort(Order[] orders, int low, int high) {
         if (low < high) {
             int pi = partition(orders, low, high);
-            quickSort(orders, low, pi - 1);  // Before pi
-            quickSort(orders, pi + 1, high); // After pi
+            quickSort(orders, low, pi - 1);
+            quickSort(orders, pi + 1, high);
         }
     }
 
@@ -68,13 +62,11 @@ public class OrderSorting {
         for (int j = low; j < high; j++) {
             if (orders[j].getTotalPrice() <= pivot) {
                 i++;
-                // Swap orders[i] and orders[j]
                 Order temp = orders[i];
                 orders[i] = orders[j];
                 orders[j] = temp;
             }
         }
-        // Swap orders[i + 1] and orders[high] (or pivot)
         Order temp = orders[i + 1];
         orders[i + 1] = orders[high];
         orders[high] = temp;
@@ -92,14 +84,12 @@ public class OrderSorting {
 
         OrderSorting orderSorting = new OrderSorting();
 
-        // Bubble Sort
         System.out.println("Orders sorted by Bubble Sort:");
         orderSorting.bubbleSort(orders);
         for (Order order : orders) {
             System.out.println(order);
         }
 
-        // Reset orders for Quick Sort
         orders = new Order[]{
             new Order(1, "Alice", 250.50),
             new Order(2, "Bob", 150.75),
@@ -107,7 +97,6 @@ public class OrderSorting {
             new Order(4, "David", 100.25)
         };
 
-        // Quick Sort
         System.out.println("\nOrders sorted by Quick Sort:");
         orderSorting.quickSort(orders, 0, orders.length - 1);
         for (Order order : orders) {
